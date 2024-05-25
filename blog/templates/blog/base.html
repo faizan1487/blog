@@ -1,0 +1,24 @@
+<!-- blog/templates/blog/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                <li>Welcome, {{ user.username }}</li>
+                <li><a href="{% url 'post_list' %}">Home</a></li>
+                <li><a href="{% url 'post_new' %}">New Post</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

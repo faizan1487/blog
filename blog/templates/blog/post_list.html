@@ -1,0 +1,6 @@
+<!-- blog/templates/blog/post_list.html -->
+{% for post in posts %}
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.content|linebreaks }}</p>
+{% endfor %}
+<a href="{% url 'post_new' %}">New Post</a>
